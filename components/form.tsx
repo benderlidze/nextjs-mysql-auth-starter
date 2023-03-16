@@ -23,8 +23,10 @@ export default function Form({ type }: { type: "login" | "register" }) {
             password: e.currentTarget.password.value,
             // @ts-ignore
           }).then(({ ok, error }) => {
+            console.log("ok, error", ok, error);
             setLoading(false);
             if (ok) {
+              console.log("push", router);
               router.push("/protected");
             } else {
               toast.error(error);
